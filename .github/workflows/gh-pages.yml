@@ -40,10 +40,8 @@ jobs:
 
       # 3. Déploiement sur les Github Pages
 
-      - name: "Deploy Github Pages"
-        uses: ad-m/github-push-action@v0.5.0
+      - name: Deploy 🚀
+        uses: JamesIves/github-pages-deploy-action@v4.2.3
         with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          branch: gh-pages
-          force: true
-          directory: ./book/_build/html/  # <- Dossier contenant notre documentation générée
+          branch: gh-pages # The branch the action should deploy to.
+          folder: .book/_build/html # The folder the action should deploy.
