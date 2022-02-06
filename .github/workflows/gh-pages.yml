@@ -11,6 +11,7 @@ jobs:
 
   # Notre job
   build-and-deploy:
+    if: "contains(github.event.commits[0].message, '[ci-run]')"
     runs-on: ubuntu-18.04
     container: 
       image: ghcr.io/elmokulc/lifework:latest
@@ -32,6 +33,9 @@ jobs:
           # source activate $(head -1 ~/.bashrc | cut -d' ' -f3)
           jupyter-book clean ./book
           jupyter-book build ./book
+          echo "======================================="
+          echo ${{ github.event.head_commit.message }}
+          echo "======================================="
 
       # # 3. Déploiement sur les Github Pages
 
