@@ -96,7 +96,7 @@ You may want to use the Gitlab container registry to store docker images and to 
 
     - Using the CLI for your container type, sign in to the Container registry service at ghcr.io.
 
-            echo $CR_PAT | docker login ghcr.io -u USERNAME -password-stdin
+            echo $CR_PAT | docker login ghcr.io -u USERNAME --password-stdin
             Login Succeeded
 
 2. Build your container image properly:
