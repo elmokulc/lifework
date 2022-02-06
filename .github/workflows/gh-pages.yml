@@ -34,13 +34,15 @@ jobs:
           jupyter-book build ./book
 
       - name: "Disable Jekill"
-        run : touch ./book/.nojekill
+        run : |
+          touch ./book/.nojekill
+          echo $(ls ./book/_build/html/ )
 
       # 3. Déploiement sur les Github Pages
 
       - name: "Deploy Github Pages"
         uses: JamesIves/github-pages-deploy-action@3.7.1
         with:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.PERSO_TOKEN }}
           BRANCH: gh-pages     # <- Branche sur laquelle seront commités les fichiers
-          FOLDER: ./book/build/html/  # <- Dossier contenant notre documentation générée
+          FOLDER: ./book/_build/html/  # <- Dossier contenant notre documentation générée
