@@ -33,15 +33,11 @@ jobs:
           jupyter-book clean ./book
           jupyter-book build ./book
 
-      - name: "Disable Jekill"
-        run : |
-          touch ./book/.nojekill
-          echo $(ls ./book/_build/html/ )
+      # # 3. Déploiement sur les Github Pages
 
-      # 3. Déploiement sur les Github Pages
-
-      - name: Deploy 🚀
-        uses: JamesIves/github-pages-deploy-action@v4.2.3
+      # Push the book's HTML to github-pages
+      - name: GitHub Pages action
+        uses: peaceiris/actions-gh-pages@v3.6.1
         with:
-          branch: gh-pages # The branch the action should deploy to.
-          folder: .book/_build/html # The folder the action should deploy.
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./book/_build/html
