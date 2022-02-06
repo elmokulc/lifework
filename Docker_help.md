@@ -10,7 +10,10 @@ If you need to update the **environment.yml**. You can also create an associate 
     - Export a conda environment:
         
             conda activate "your_env_name"
-            conda env export > environment.yml
+            conda env export | sed 's/name: .*/name: base/'  | sed 's/prefix: .*//' > environment.yml
+
+    
+      **Note**: We make sure that environment name is ***"base"***
 
 2. Build your docker image.
 
