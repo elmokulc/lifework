@@ -6,9 +6,6 @@ jupyter-build:
   stage: build
   image: registry.gitlab.com/celmo/lifework:latest
   script:
-    # Source conda env from what found in bashrc
-    - echo $(ls)
-    - source activate $(head -1 ~/.bashrc | cut -d' ' -f3)
     - jupyter-book clean ./book
     - jupyter-book build ./book
   artifacts:
