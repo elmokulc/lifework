@@ -71,3 +71,17 @@ def create_mesh3D(
     fig.data[0].update(lightposition=dict(x=3000, y=3000, z=10000))
 
     return fig
+
+
+def add_points(points, fig, name, scale=1e3, *args, **kwargs):
+    fig.add_trace(
+        go.Scatter3d(
+            x=np.concatenate([points, points]).reshape(-1, 3)[:, 0] * scale,
+            y=np.concatenate([points, points]).reshape(-1, 3)[:, 1] * scale,
+            z=np.concatenate([points, points]).reshape(-1, 3)[:, 2] * scale,
+            name=name,
+            mode="markers",
+            **kwargs
+        )
+    )
+    return fig
