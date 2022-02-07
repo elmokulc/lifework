@@ -1,6 +1,9 @@
 FROM continuumio/miniconda3:latest
 
-RUN apt-get update && apt-get install libgl1 -y && apt-get install ffmpeg libsm6 libxext6  -y && apt install libspatialindex-dev -y
+RUN apt-get update && apt-get install libgl1 -y && \
+    apt-get install ffmpeg libsm6 libxext6  -y && \
+    apt install libspatialindex-dev -y && \
+    apt-get install openscad blender -y 
 SHELL ["/bin/bash", "--login", "-c"]
 
 ADD environment.yml /tmp/environment.yml

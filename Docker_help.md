@@ -53,6 +53,10 @@ If you want to check your work locally follow this.
     
         docker push celmo/jupyter-book:latest 
 
+3. Clean :
+
+        docker system prune -a -f
+
 # Use Gitlab container registry 
 
 You may want to use the Gitlab container registry to store docker images and to use it for your repository instead of using DockerHub , see more explanantions [here](https://about.gitlab.com/blog/2016/05/23/gitlab-container-registry/).
@@ -69,11 +73,11 @@ You may want to use the Gitlab container registry to store docker images and to 
 
 2. Build image:
 
-        docker build -t registry.gitlab.com/symmehub/teaching/positron .
+        docker build -t registry.gitlab.com/celmo/lifework .
 
 3. Push Image:
 
-        docker push registry.gitlab.com/symmehub/teaching/positron
+        docker push registry.gitlab.com/celmo/lifework:latest
 
 4. Update **.gitlab-ci.yml** with your new image.
 
@@ -106,12 +110,12 @@ You may want to use the Gitlab container registry to store docker images and to 
     
     Example:
 
-            docker build -t ghcr.io/symmehub/positron/positron:latest .
+            docker build -t ghcr.io/elmokulc/lifework:latest .
 
 
 3. Push container to GitHub registry:
     
-            docker push ghcr.io/symmehub/positron/positron:latest
+            docker push ghcr.io/elmokulc/lifework:latest
 
 4. Optionnal inspect:
 
