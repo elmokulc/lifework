@@ -2,7 +2,7 @@
 # Book settings
 # Learn more at https://jupyterbook.org/customize/config.html
 
-title: "LIFEWORK: coLlection of thEsis WORKs" # The title of the book. Will be placed in the left navbar.
+title: "LIFEWORK: coLlection of my thEsis WORKs" # The title of the book. Will be placed in the left navbar.
 author: Christian Elmo # The author of the book
 copyright                   : "2022"  # Copyright year to be placed in the footer
 logo: logo.png
