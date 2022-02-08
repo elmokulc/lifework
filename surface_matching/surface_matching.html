@@ -246,8 +246,8 @@
     </a>
     <ul class="nav section-nav flex-column">
      <li class="toc-h3 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#method-high-lines">
-       1.1.1.1. Method high lines
+      <a class="reference internal nav-link" href="#method-outlines">
+       1.1.1.1. Method outlines
       </a>
      </li>
      <li class="toc-h3 nav-item toc-entry">
@@ -356,8 +356,8 @@
     </a>
     <ul class="nav section-nav flex-column">
      <li class="toc-h3 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#method-high-lines">
-       1.1.1.1. Method high lines
+      <a class="reference internal nav-link" href="#method-outlines">
+       1.1.1.1. Method outlines
       </a>
      </li>
      <li class="toc-h3 nav-item toc-entry">
@@ -450,8 +450,8 @@
 <p>This notebook presents a method to match a point cloud taken with any scanning system to a digital 3D scan in stl format.</p>
 <div class="section" id="introduction">
 <h2><span class="section-number">1.1.1. </span>Introduction<a class="headerlink" href="#introduction" title="Permalink to this headline">¶</a></h2>
-<div class="section" id="method-high-lines">
-<h3><span class="section-number">1.1.1.1. </span>Method high lines<a class="headerlink" href="#method-high-lines" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="method-outlines">
+<h3><span class="section-number">1.1.1.1. </span>Method outlines<a class="headerlink" href="#method-outlines" title="Permalink to this headline">¶</a></h3>
 <p>Surface matching is based on an optimization strategy.
 The objective of this optimization is to identify the parameters of the reference change allowing to pass from the coordinate system of the STL file to the coordinate system of the scan system.</p>
 <p>This change of reference frame is formalized by a passage matrix formed by a rotation vector and a translation vector according to the Rodrigues formalism.
@@ -480,7 +480,7 @@ A minimum of 3 points is necessary to block the 6DOF.</p>
 <div class="cell_output docutils container">
 <div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
 <span class="ne">ModuleNotFoundError</span><span class="g g-Whitespace">                       </span>Traceback (most recent call last)
-<span class="o">/</span><span class="n">tmp</span><span class="o">/</span><span class="n">ipykernel_179</span><span class="o">/</span><span class="mf">2042619430.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="o">/</span><span class="n">tmp</span><span class="o">/</span><span class="n">ipykernel_176</span><span class="o">/</span><span class="mf">2042619430.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
 <span class="g g-Whitespace">      </span><span class="mi">2</span> <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 <span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="kn">from</span> <span class="nn">scipy</span> <span class="kn">import</span> <span class="n">optimize</span>
 <span class="ne">----&gt; </span><span class="mi">4</span> <span class="kn">import</span> <span class="nn">plot_mesh</span> <span class="k">as</span> <span class="nn">pltm</span>
@@ -590,7 +590,7 @@ A minimum of 3 points is necessary to block the 6DOF.</p>
 </div>
 <div class="section" id="define-reference-points-on-stl-file">
 <h2><span class="section-number">1.1.2. </span>Define reference points on STL file<a class="headerlink" href="#define-reference-points-on-stl-file" title="Permalink to this headline">¶</a></h2>
-<p>We define reference points on the STl that can be easily found on the real model
+<p>We define reference points on the STl that can be easily found on the real model.<br>
 A point on the glenoid, coracoid and acromion is selected.</p>
 <div class="cell tag_hide-input docutils container">
 <div class="cell_input docutils container">
@@ -609,7 +609,8 @@ A point on the glenoid, coracoid and acromion is selected.</p>
 </div>
 </div>
 </div>
-<p>The same points are easily found on the real model</p>
+<p>The same points are easily found on the real model.<br>
+Here, the points are marked in green.</p>
 <p><cimg><a class="reference internal" href="../_images/scapula.jpg"><img alt="../_images/scapula.jpg" src="../_images/scapula.jpg" style="width: 300px;" /></a></cimg></p>
 </div>
 <div class="section" id="computations">
