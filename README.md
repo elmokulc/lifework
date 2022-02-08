@@ -1,4 +1,4 @@
-# LIFEWORK: coLlectIon oF thEsis WORKs
+# LIFEWORK: coLlectIon oF my thEsis WORKs
 
 Welcome to you in LIFEWORK. This repository is intended to gather documents, mainly Jupyter notebooks as teaching aids for digital methods. In order to keep the repository free of unnecessary files and hard-to-read commits, it is mandatory to follow the following guidelines:
 
