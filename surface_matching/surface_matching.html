@@ -470,24 +470,9 @@ A minimum of 3 points is necessary to block the 6DOF.</p>
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">trimesh</span>
 <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 <span class="kn">from</span> <span class="nn">scipy</span> <span class="kn">import</span> <span class="n">optimize</span>
-<span class="kn">import</span> <span class="nn">plot_mesh</span> <span class="k">as</span> <span class="nn">pltm</span>
 <span class="kn">import</span> <span class="nn">plotly.graph_objects</span> <span class="k">as</span> <span class="nn">go</span>
 <span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
 <span class="kn">import</span> <span class="nn">gbu</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">ModuleNotFoundError</span><span class="g g-Whitespace">                       </span>Traceback (most recent call last)
-<span class="o">/</span><span class="n">tmp</span><span class="o">/</span><span class="n">ipykernel_176</span><span class="o">/</span><span class="mf">2042619430.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
-<span class="g g-Whitespace">      </span><span class="mi">2</span> <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-<span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="kn">from</span> <span class="nn">scipy</span> <span class="kn">import</span> <span class="n">optimize</span>
-<span class="ne">----&gt; </span><span class="mi">4</span> <span class="kn">import</span> <span class="nn">plot_mesh</span> <span class="k">as</span> <span class="nn">pltm</span>
-<span class="g g-Whitespace">      </span><span class="mi">5</span> <span class="kn">import</span> <span class="nn">plotly.graph_objects</span> <span class="k">as</span> <span class="nn">go</span>
-<span class="g g-Whitespace">      </span><span class="mi">6</span> <span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
-
-<span class="ne">ModuleNotFoundError</span>: No module named &#39;plot_mesh&#39;
 </pre></div>
 </div>
 </div>
@@ -582,6 +567,26 @@ A minimum of 3 points is necessary to block the 6DOF.</p>
 
 <span class="n">fig</span> <span class="o">=</span> <span class="n">create_mesh3D</span><span class="p">(</span><span class="n">stl_file</span><span class="o">=</span><span class="s2">&quot;scapula.stl&quot;</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="s2">&quot;Scapula Left &lt;br&gt; stl file&quot;</span><span class="p">)</span>
 <span class="n">fig</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
+<span class="o">/</span><span class="n">tmp</span><span class="o">/</span><span class="n">ipykernel_175</span><span class="o">/</span><span class="mf">3178904302.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="g g-Whitespace">     </span><span class="mi">81</span> 
+<span class="g g-Whitespace">     </span><span class="mi">82</span> 
+<span class="ne">---&gt; </span><span class="mi">83</span> <span class="n">fig</span> <span class="o">=</span> <span class="n">create_mesh3D</span><span class="p">(</span><span class="n">stl_file</span><span class="o">=</span><span class="s2">&quot;scapula.stl&quot;</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="s2">&quot;Scapula Left &lt;br&gt; stl file&quot;</span><span class="p">)</span>
+<span class="g g-Whitespace">     </span><span class="mi">84</span> <span class="n">fig</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+
+<span class="nn">/tmp/ipykernel_175/3178904302.py</span> in <span class="ni">create_mesh3D</span><span class="nt">(stl_file, title, colorscale)</span>
+<span class="g g-Whitespace">     </span><span class="mi">22</span>     <span class="k">if</span> <span class="n">colorscale</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+<span class="g g-Whitespace">     </span><span class="mi">23</span>         <span class="n">colorscale</span> <span class="o">=</span> <span class="p">[[</span><span class="mi">0</span><span class="p">,</span> <span class="s2">&quot;#e5dee5&quot;</span><span class="p">],</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="s2">&quot;#e5dee5&quot;</span><span class="p">]]</span>
+<span class="ne">---&gt; </span><span class="mi">24</span>     <span class="n">vertices</span><span class="p">,</span> <span class="n">I</span><span class="p">,</span> <span class="n">J</span><span class="p">,</span> <span class="n">K</span> <span class="o">=</span> <span class="n">stl2mesh3d</span><span class="p">(</span><span class="n">mesh</span><span class="o">.</span><span class="n">Mesh</span><span class="o">.</span><span class="n">from_file</span><span class="p">(</span><span class="n">stl_file</span><span class="p">))</span>
+<span class="g g-Whitespace">     </span><span class="mi">25</span>     <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">z</span> <span class="o">=</span> <span class="n">vertices</span><span class="o">.</span><span class="n">T</span>
+<span class="g g-Whitespace">     </span><span class="mi">26</span>     <span class="n">mesh3D</span> <span class="o">=</span> <span class="n">go</span><span class="o">.</span><span class="n">Mesh3d</span><span class="p">(</span>
+
+<span class="ne">NameError</span>: name &#39;mesh&#39; is not defined
 </pre></div>
 </div>
 </div>
