@@ -63,10 +63,10 @@ p_scan_scapula = get_stylus_points(
 )
 
 data_points = {
-    "p_glene_scapula": p_glene_scapula,
-    "p_acromion_scapula": p_acromion_scapula,
-    "p_coracoide_scapula": p_coracoide_scapula,
-    "p_scan_scapula": p_scan_scapula,
+    "p_glene_scan": p_glene_scapula,
+    "p_acromion_scan": p_acromion_scapula,
+    "p_coracoide_scan": p_coracoide_scapula,
+    "p_full_scan": p_scan_scapula,
 }
 
 
