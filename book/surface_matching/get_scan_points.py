@@ -83,13 +83,13 @@ pp = []
 cc = ["x", "y", "z"]
 for key in data_points.keys():
     for c in cc:
-        pp.append((key, "p3d", c))
+        pp.append((key, c))
 
 cols = pd.MultiIndex.from_tuples(pp)
 df = pd.DataFrame(columns=cols)
 for key, value in data_points.items():
     for ii in range(len(value)):
         for i in range(3):
-            df.at[ii, (key, "p3d", "xyz"[i])] = value[ii, i]
+            df.at[ii, (key, "xyz"[i])] = value[ii, i]
 
 df.to_pickle("data_scan.p")
