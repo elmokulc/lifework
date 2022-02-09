@@ -6,15 +6,23 @@ root: intro
 options:  # The options key will be applied to all chapters, but not sub-sections
   numbered: True
 parts :
-  - caption: Surface matching
+
+  - caption: Three-dimensional localization by monocular vision by computer
     numbered: True
     chapters: 
-    - file: surface_matching/surface_matching_intro.md
+    - file: chapter_3D_localization/intro.md
       sections: 
-      - file:  surface_matching/surface_matching.ipynb
-    #   - file: image_processing/support_material/blob_orientation.ipynb
-    # - file:  image_processing/exercises/exercises
-    #   sections:     
-    #   - file: image_processing/exercises/image_processing_tutorial.ipynb
-    #   - file: image_processing/exercises/image_processing_practical_work.ipynb
-    #   - file: image_processing/exercises/image_processing_practical_work_bonus.ipynb
+      - file: chapter_3D_localization/composite_marker/composite_marker.ipynb
+
+  - caption: Identification of primary geometries associated with composite locators
+    numbered: True
+    chapters: 
+    - file: chapter_geometry_features/intro.md
+      sections: 
+      - file: chapter_geometry_features/surface_matching/surface_matching.ipynb
+
+
+  - caption: Experimental applications for shoulder surgery
+    numbered: True
+    chapters: 
+    - file: chapter_applications/intro.md
