@@ -12,7 +12,8 @@ parts :
     chapters: 
     - file: chapter_3D_localization/intro.md
       sections: 
-      - file: chapter_3D_localization/composite_marker/composite_marker.ipynb
+      - file: chapter_3D_localization/composite_marker/composite_marker.md
+      - file: chapter_3D_localization/composite_marker/composite_marker_example.ipynb
 
   - caption: Identification of primary geometries associated with composite locators
     numbered: True

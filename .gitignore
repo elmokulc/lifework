@@ -2,3 +2,5 @@
 *.pyc
 book/_build/*
 .vscode
+**/_dataset/**
+*.tar.gz
