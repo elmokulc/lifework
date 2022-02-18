@@ -17,33 +17,33 @@ Traceback (most recent call last):
     raise CellExecutionError.from_cell_and_msg(cell, exec_reply_content)
 nbclient.exceptions.CellExecutionError: An error occurred while executing the following cell:
 ------------------
-# SETUP
-image_directory = "./_dataset/"
+# STEP 1: PREPROCESSING
+print("# BATCH INTITIALIZATION")
+batch = gbu.calibration.ImageBatchCalibration(
+    aruco_dict=aruco.DICT_6X6_250,
+    parameters=parameters,
+    marker_dimension=marker_dimension,
+    output_directory="./_outputs_calibration/",
+    camera_matrix=camera_matrix,
+    distortion_coefficients=distortion_coefficients,
+)
 
-metadata = json.load(open(image_directory + "metadata.json"))
-camera_matrix = np.array(metadata["camera_matrix"])
-distortion_coefficients = np.array(metadata["distortion_coefficients"])
-md = float(metadata["aruco_marker_size"].split()[0])
-marker_dimension = {i: md for i in range(1, 250)}
-marker_size = 12.4079e-3
-marker_dimension = {i: marker_size for i in range(1, 250)}
-
-# Aruco settings
-parameters = aruco.DetectorParameters_create()
-parameters.cornerRefinementMethod = 3
-parameters.cornerRefinementWinSize = 5
-parameters.cornerRefinementMaxIterations = 100
+batch.load_image_batch(directory=image_directory)
+batch.detect_markers(
+    plot_markers=False, enforce=False, meta_filename="metadata.p", protocol=4
+)
+_ = batch.estimate_pose()
 ------------------
 
 [0;31m---------------------------------------------------------------------------[0m
-[0;31mFileNotFoundError[0m                         Traceback (most recent call last)
-[0;32m/tmp/ipykernel_178/2363916721.py[0m in [0;36m<module>[0;34m[0m
-[1;32m      2[0m [0mimage_directory[0m [0;34m=[0m [0;34m"./_dataset/"[0m[0;34m[0m[0;34m[0m[0m
-[1;32m      3[0m [0;34m[0m[0m
-[0;32m----> 4[0;31m [0mmetadata[0m [0;34m=[0m [0mjson[0m[0;34m.[0m[0mload[0m[0;34m([0m[0mopen[0m[0;34m([0m[0mimage_directory[0m [0;34m+[0m [0;34m"metadata.json"[0m[0;34m)[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
-[0m[1;32m      5[0m [0mcamera_matrix[0m [0;34m=[0m [0mnp[0m[0;34m.[0m[0marray[0m[0;34m([0m[0mmetadata[0m[0;34m[[0m[0;34m"camera_matrix"[0m[0;34m][0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
-[1;32m      6[0m [0mdistortion_coefficients[0m [0;34m=[0m [0mnp[0m[0;34m.[0m[0marray[0m[0;34m([0m[0mmetadata[0m[0;34m[[0m[0;34m"distortion_coefficients"[0m[0;34m][0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0;31mTypeError[0m                                 Traceback (most recent call last)
+[0;32m/tmp/ipykernel_177/341513840.py[0m in [0;36m<module>[0;34m[0m
+[1;32m     11[0m [0;34m[0m[0m
+[1;32m     12[0m [0mbatch[0m[0;34m.[0m[0mload_image_batch[0m[0;34m([0m[0mdirectory[0m[0;34m=[0m[0mimage_directory[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0;32m---> 13[0;31m batch.detect_markers(
+[0m[1;32m     14[0m     [0mplot_markers[0m[0;34m=[0m[0;32mFalse[0m[0;34m,[0m [0menforce[0m[0;34m=[0m[0;32mFalse[0m[0;34m,[0m [0mmeta_filename[0m[0;34m=[0m[0;34m"metadata.p"[0m[0;34m,[0m [0mprotocol[0m[0;34m=[0m[0;36m4[0m[0;34m[0m[0;34m[0m[0m
+[1;32m     15[0m )
 
-[0;31mFileNotFoundError[0m: [Errno 2] No such file or directory: './_dataset/metadata.json'
-FileNotFoundError: [Errno 2] No such file or directory: './_dataset/metadata.json'
+[0;31mTypeError[0m: detect_markers() got an unexpected keyword argument 'protocol'
+TypeError: detect_markers() got an unexpected keyword argument 'protocol'
 
