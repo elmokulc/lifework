@@ -52,8 +52,14 @@ info:
 
 update: env-exp img-update
 
-web-build: 
+web-build: commit-empy commit-push
+
+commit-empy:
+	@echo "Create empty commit"
 	git commit --allow-empty -m "[ci-run] Build Website authored by ${GIT_FORGE_USERNAME}"
+
+commit-push:
+	@echo "Push commit"
 	git push origin main
 
 book-info:
