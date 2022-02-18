@@ -43,6 +43,8 @@
     <script src="../../_static/copybutton.js"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
     <script src="../../_static/sphinx-book-theme.d59cb220de22ca1c485ebbdc042f0030.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.20.0/dist/embed-amd.js"></script>
     <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
     <script>
         const thebe_selector = ".thebe"
@@ -333,16 +335,30 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  0%|          | 0/1 [00:00&lt;?, ?it/s]
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Estimating composite pose on image: 0:   0%|          | 0/1 [00:00&lt;?, ?it/s]
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Estimating composite pose on image: 0: 100%|██████████| 1/1 [00:00&lt;00:00, 35.79it/s]
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">TypeError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
+<span class="o">/</span><span class="n">tmp</span><span class="o">/</span><span class="n">ipykernel_212</span><span class="o">/</span><span class="mf">407874263.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="g g-Whitespace">     </span><span class="mi">15</span> <span class="n">parameters</span><span class="o">.</span><span class="n">cornerRefinementMaxIterations</span> <span class="o">=</span> <span class="mi">100</span>
+<span class="g g-Whitespace">     </span><span class="mi">16</span> 
+<span class="ne">---&gt; </span><span class="mi">17</span> <span class="n">batch</span> <span class="o">=</span> <span class="n">gbu</span><span class="o">.</span><span class="n">calibration</span><span class="o">.</span><span class="n">ImageBatchCompositePose</span><span class="p">(</span>
+<span class="g g-Whitespace">     </span><span class="mi">18</span>     <span class="n">composites</span><span class="o">=</span><span class="n">composites_dic</span><span class="p">,</span>
+<span class="g g-Whitespace">     </span><span class="mi">19</span>     <span class="n">parameters</span><span class="o">=</span><span class="n">parameters</span><span class="p">,</span>
+
+<span class="nn">/opt/conda/lib/python3.8/site-packages/gbu/calibration.py</span> in <span class="ni">__init__</span><span class="nt">(self, composites, history, *args, **kwargs)</span>
+<span class="g g-Whitespace">    </span><span class="mi">930</span> 
+<span class="g g-Whitespace">    </span><span class="mi">931</span>     <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">composites</span><span class="p">,</span> <span class="n">history</span><span class="o">=</span><span class="p">[],</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+<span class="ne">--&gt; </span><span class="mi">932</span>         <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">933</span>         <span class="bp">self</span><span class="o">.</span><span class="n">composites</span> <span class="o">=</span> <span class="n">composites</span>
+<span class="g g-Whitespace">    </span><span class="mi">934</span>         <span class="bp">self</span><span class="o">.</span><span class="n">history</span> <span class="o">=</span> <span class="n">history</span>
+
+<span class="nn">/opt/conda/lib/python3.8/site-packages/gbu/utils.py</span> in <span class="ni">__init__</span><span class="nt">(self, aruco_dict, parameters, marker_dimension, output_directory, camera_matrix, distortion_coefficients, **kwargs)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1080</span> 
+<span class="g g-Whitespace">   </span><span class="mi">1081</span>             <span class="bp">self</span><span class="o">.</span><span class="n">load_image_batch</span><span class="p">(</span><span class="n">directory</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">input_directory</span><span class="p">)</span>
+<span class="ne">-&gt; </span><span class="mi">1082</span>             <span class="bp">self</span><span class="o">.</span><span class="n">detect_markers</span><span class="p">(</span><span class="n">plot_markers</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">enforce</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1083</span> 
+<span class="g g-Whitespace">   </span><span class="mi">1084</span>         <span class="k">if</span> <span class="n">output_directory</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+
+<span class="ne">TypeError</span>: detect_markers() got an unexpected keyword argument &#39;directory&#39;
 </pre></div>
 </div>
 </div>
@@ -354,26 +370,6 @@
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0it [00:00, ?it/s]
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0it [00:00, ?it/s]
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0it [00:00, ?it/s]
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0it [00:00, ?it/s]
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
-</pre></div>
-</div>
-</div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -381,64 +377,6 @@
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output text_html"><div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead tr th {
-        text-align: left;
-    }
-
-    .dataframe thead tr:last-of-type th {
-        text-align: right;
-    }
-</style>
-<table border="1" class="dataframe">
-  <thead>
-    <tr>
-      <th></th>
-      <th colspan="3" halign="left">rvec</th>
-      <th colspan="3" halign="left">tvec</th>
-    </tr>
-    <tr>
-      <th></th>
-      <th>x</th>
-      <th>y</th>
-      <th>z</th>
-      <th>x</th>
-      <th>y</th>
-      <th>z</th>
-    </tr>
-    <tr>
-      <th>pose</th>
-      <th></th>
-      <th></th>
-      <th></th>
-      <th></th>
-      <th></th>
-      <th></th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>0</th>
-      <td>1.761875</td>
-      <td>-0.629667</td>
-      <td>-1.843106</td>
-      <td>-0.124378</td>
-      <td>0.128691</td>
-      <td>0.708483</td>
-    </tr>
-  </tbody>
-</table>
-</div></div></div>
 </div>
 </div>
 

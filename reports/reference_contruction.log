@@ -1,0 +1,71 @@
+Traceback (most recent call last):
+  File "/opt/conda/lib/python3.8/site-packages/jupyter_cache/executors/utils.py", line 51, in single_nb_execution
+    executenb(
+  File "/opt/conda/lib/python3.8/site-packages/nbclient/client.py", line 1085, in execute
+    return NotebookClient(nb=nb, resources=resources, km=km, **kwargs).execute()
+  File "/opt/conda/lib/python3.8/site-packages/nbclient/util.py", line 84, in wrapped
+    return just_run(coro(*args, **kwargs))
+  File "/opt/conda/lib/python3.8/site-packages/nbclient/util.py", line 62, in just_run
+    return loop.run_until_complete(coro)
+  File "/opt/conda/lib/python3.8/asyncio/base_events.py", line 616, in run_until_complete
+    return future.result()
+  File "/opt/conda/lib/python3.8/site-packages/nbclient/client.py", line 551, in async_execute
+    await self.async_execute_cell(
+  File "/opt/conda/lib/python3.8/site-packages/nbclient/client.py", line 846, in async_execute_cell
+    self._check_raise_for_error(cell, exec_reply)
+  File "/opt/conda/lib/python3.8/site-packages/nbclient/client.py", line 748, in _check_raise_for_error
+    raise CellExecutionError.from_cell_and_msg(cell, exec_reply_content)
+nbclient.exceptions.CellExecutionError: An error occurred while executing the following cell:
+------------------
+compo_drill_guide = gbu.core.load_composite("composite_calib_geo_axis_drill_guide.json")
+compo_implant = gbu.core.load_composite("composite_implant.json")
+
+composites_dic = {"drill_guide": compo_drill_guide, "implant": compo_implant}
+
+image_directory = "./"
+
+with open("./metadata.json", "r") as f:
+    metadata = js.load(f)
+camera_matrix = np.array(metadata["camera_matrix"])
+distortion_coefficients = np.array(metadata["distortion_coefficients"])
+
+parameters = aruco.DetectorParameters_create()
+parameters.cornerRefinementMethod = 3
+parameters.cornerRefinementMaxIterations = 100
+
+batch = gbu.calibration.ImageBatchCompositePose(
+    composites=composites_dic,
+    parameters=parameters,
+    output_directory="./_outputs/",
+    camera_matrix=camera_matrix,
+    distortion_coefficients=distortion_coefficients,
+    directory=image_directory,
+)
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mTypeError[0m                                 Traceback (most recent call last)
+[0;32m/tmp/ipykernel_212/407874263.py[0m in [0;36m<module>[0;34m[0m
+[1;32m     15[0m [0mparameters[0m[0;34m.[0m[0mcornerRefinementMaxIterations[0m [0;34m=[0m [0;36m100[0m[0;34m[0m[0;34m[0m[0m
+[1;32m     16[0m [0;34m[0m[0m
+[0;32m---> 17[0;31m batch = gbu.calibration.ImageBatchCompositePose(
+[0m[1;32m     18[0m     [0mcomposites[0m[0;34m=[0m[0mcomposites_dic[0m[0;34m,[0m[0;34m[0m[0;34m[0m[0m
+[1;32m     19[0m     [0mparameters[0m[0;34m=[0m[0mparameters[0m[0;34m,[0m[0;34m[0m[0;34m[0m[0m
+
+[0;32m/opt/conda/lib/python3.8/site-packages/gbu/calibration.py[0m in [0;36m__init__[0;34m(self, composites, history, *args, **kwargs)[0m
+[1;32m    930[0m [0;34m[0m[0m
+[1;32m    931[0m     [0;32mdef[0m [0m__init__[0m[0;34m([0m[0mself[0m[0;34m,[0m [0mcomposites[0m[0;34m,[0m [0mhistory[0m[0;34m=[0m[0;34m[[0m[0;34m][0m[0;34m,[0m [0;34m*[0m[0margs[0m[0;34m,[0m [0;34m**[0m[0mkwargs[0m[0;34m)[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+[0;32m--> 932[0;31m         [0msuper[0m[0;34m([0m[0;34m)[0m[0;34m.[0m[0m__init__[0m[0;34m([0m[0;34m*[0m[0margs[0m[0;34m,[0m [0;34m**[0m[0mkwargs[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m    933[0m         [0mself[0m[0;34m.[0m[0mcomposites[0m [0;34m=[0m [0mcomposites[0m[0;34m[0m[0;34m[0m[0m
+[1;32m    934[0m         [0mself[0m[0;34m.[0m[0mhistory[0m [0;34m=[0m [0mhistory[0m[0;34m[0m[0;34m[0m[0m
+
+[0;32m/opt/conda/lib/python3.8/site-packages/gbu/utils.py[0m in [0;36m__init__[0;34m(self, aruco_dict, parameters, marker_dimension, output_directory, camera_matrix, distortion_coefficients, **kwargs)[0m
+[1;32m   1080[0m [0;34m[0m[0m
+[1;32m   1081[0m             [0mself[0m[0;34m.[0m[0mload_image_batch[0m[0;34m([0m[0mdirectory[0m[0;34m=[0m[0mself[0m[0;34m.[0m[0minput_directory[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0;32m-> 1082[0;31m             [0mself[0m[0;34m.[0m[0mdetect_markers[0m[0;34m([0m[0mplot_markers[0m[0;34m=[0m[0;32mTrue[0m[0;34m,[0m [0menforce[0m[0;34m=[0m[0;32mFalse[0m[0;34m,[0m [0;34m**[0m[0mkwargs[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m   1083[0m [0;34m[0m[0m
+[1;32m   1084[0m         [0;32mif[0m [0moutput_directory[0m [0;32mis[0m [0;32mNone[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+
+[0;31mTypeError[0m: detect_markers() got an unexpected keyword argument 'directory'
+TypeError: detect_markers() got an unexpected keyword argument 'directory'
+
